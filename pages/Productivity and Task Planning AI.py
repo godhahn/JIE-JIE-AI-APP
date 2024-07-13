@@ -77,6 +77,7 @@ def update_task_details(task_index, new_details):
 
 # Streamlit app interface
 st.title("Productivity and Task Planning AI")
+
 st.markdown("---")
 st.header("Generate Sticky Notes")
 
