@@ -77,6 +77,8 @@ def update_task_details(task_index, new_details):
 
 # Streamlit app interface
 st.title("Productivity and Task Planning AI")
+st.markdown("---")
+st.header("Generate Your Sticky Notes")
 
 # Input fields for task creation
 task_name = st.text_input("Task Name", max_chars=100, value='', help='Max 100 characters')
@@ -99,6 +101,7 @@ for task in st.session_state.tasks:
 st.session_state.tasks = sorted(st.session_state.tasks, key=lambda x: x['priority'], reverse=True)
 
 # Display tasks as collapsible sections
+st.markdown("---")
 st.header("Sticky Notes Wall")
 for task in reversed(st.session_state.tasks):  # Display highest priority first
     with st.expander(task['name'], expanded=False):  # Collapsible expander for each task
@@ -120,7 +123,7 @@ for task in reversed(st.session_state.tasks):  # Display highest priority first
                 move_to_bottom(st.session_state.tasks.index(task))
 
         st.markdown("---")
-        
+
         # Edit planning section
         new_planning = st.text_area("Edit Planning Section", value="\n".join(task['response']), height=100, key=f"edit_{task['name']}_planning")
         if st.button("Update Planning", key=f"update_{task['name']}"):
