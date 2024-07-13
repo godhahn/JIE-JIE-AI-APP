@@ -125,8 +125,8 @@ for task in reversed(st.session_state.tasks):  # Display highest priority first
 
         st.markdown("---")
 
-        # Edit planning section
+        # Edit Sticky Note
         new_planning = st.text_area("Edit Sticky Note", value="\n".join(task['response']), height=100, key=f"edit_{task['name']}_planning")
-        if st.button("Update Planning", key=f"update_{task['name']}"):
+        if st.button("Update Sticky Note", key=f"update_{task['name']}"):
             st.session_state.tasks[st.session_state.tasks.index(task)]['response'] = new_planning.split('\n')
             save_tasks(st.session_state.tasks)
