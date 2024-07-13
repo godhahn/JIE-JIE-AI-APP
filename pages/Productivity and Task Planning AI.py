@@ -88,7 +88,7 @@ task_details = st.text_area("Task Details", value='', height=150, help='Use chec
 priority = st.slider("Priority (1 is highest, 5 is lowest)", 1, 5, 3)
 
 if st.button("Create Task"):
-    prompt = f"Create a task named '{task_name}' with the following details: '{task_details}', and a priority of {priority}. Explain how to prioritize and plan it effectively, in point form."
+    prompt = f"With a task named '{task_name}', and the following details: '{task_details}', and a priority of {priority}. Explain how to prioritize and plan it effectively, in point form."
     response = generate_response(prompt)
     add_task(task_name, task_details, "", priority, response)
 
