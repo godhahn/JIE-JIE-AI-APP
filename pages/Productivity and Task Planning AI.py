@@ -129,4 +129,3 @@ for task in reversed(st.session_state.tasks):  # Display highest priority first
         if st.button("Update Planning", key=f"update_{task['name']}"):
             st.session_state.tasks[st.session_state.tasks.index(task)]['response'] = new_planning.split('\n')
             save_tasks(st.session_state.tasks)
-        

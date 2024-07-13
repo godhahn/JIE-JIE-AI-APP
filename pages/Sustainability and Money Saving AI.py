@@ -23,19 +23,23 @@ def generate_actions(action):
         return f'Failed to generate actions: {e}'
 
 # Streamlit app interface
-st.title("Sustainability and Money Saving AI")
+def main():
+    st.title("Sustainability and Money Saving AI")
 
-# Input for user action
-user_action = st.text_input("Enter an action to get advice")
+    # Input for user action
+    user_action = st.text_input("Enter an action to get advice")
 
-# Button to get advice
-if st.button("Get Advice"):
-    if user_action:
-        actions = generate_actions(user_action)
-        st.write("Here are some suggested actions:")
-        actions_list = actions.split('\n')
-        for action in actions_list:
-            if action.strip():
-                st.checkbox(action.strip())
-    else:
-        st.write("Please enter an action to get advice.")
+    # Button to get advice
+    if st.button("Get Advice"):
+        if user_action:
+            actions = generate_actions(user_action)
+            st.write("Here are some suggested actions:")
+            actions_list = actions.split('\n')
+            for action in actions_list:
+                if action.strip():
+                    st.checkbox(action.strip())
+        else:
+            st.write("Please enter an action to get advice.")
+
+if __name__ == "__main__":
+    main()
