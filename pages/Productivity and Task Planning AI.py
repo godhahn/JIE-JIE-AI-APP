@@ -2,11 +2,9 @@ import streamlit as st
 import json
 from groq import Groq
 
-# Replace 'your_api_key_here' with your actual Groq API key
 API_KEY = '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'
 client = Groq(api_key=API_KEY)
 
-# Function to generate AI responses for task planning
 def generate_response(prompt):
     try:
         chat_completion = client.chat.completions.create(
