@@ -2,8 +2,8 @@ import streamlit as st
 import json
 from groq import Groq
 
-API_KEY = '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'
-client = Groq(api_key=API_KEY)
+
+client = Groq(api_key=st.secrets["GROQ"])
 
 def generate_response(prompt):
     try:
